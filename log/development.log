@@ -1,0 +1,1323 @@
+  [1m[35m (278.0ms)[0m  [1m[35mCREATE DATABASE "my_appointments_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (116.6ms)[0m  [1m[35mCREATE DATABASE "my_appointments_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (32.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1960132899144327495)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAppointments (20200512144939)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "patient" character varying, "doctor" character varying, "type" character varying, "date" character varying, "time" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200512144939"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePatients (20200512145044)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "patients" ("id" bigserial primary key, "name" character varying, "DOB" character varying, "insurance" character varying, "allergies" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200512145044"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-12 14:51:03.098060"], ["updated_at", "2020-05-12 14:51:03.098060"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1960132899144327495)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (5.0ms)[0m  [1m[32mINSERT INTO "patients" ("name", "DOB", "insurance", "allergies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Loganne"], ["DOB", "5/27/96"], ["insurance", "Providence"], ["allergies", "gluten"], ["created_at", "2020-05-12 15:01:46.186294"], ["updated_at", "2020-05-12 15:01:46.186294"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (0.4ms)[0m  [1m[32mINSERT INTO "patients" ("name", "DOB", "insurance", "allergies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Morgan"], ["DOB", "08/19/93"], ["insurance", "Blue Cross"], ["allergies", "none"], ["created_at", "2020-05-12 15:01:46.198132"], ["updated_at", "2020-05-12 15:01:46.198132"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (0.9ms)[0m  [1m[32mINSERT INTO "patients" ("name", "DOB", "insurance", "allergies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Loganne"], ["DOB", "5/27/96"], ["insurance", "Providence"], ["allergies", "gluten"], ["created_at", "2020-05-12 15:02:54.707230"], ["updated_at", "2020-05-12 15:02:54.707230"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (0.5ms)[0m  [1m[32mINSERT INTO "patients" ("name", "DOB", "insurance", "allergies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Morgan"], ["DOB", "08/19/93"], ["insurance", "Blue Cross"], ["allergies", "none"], ["created_at", "2020-05-12 15:02:54.714473"], ["updated_at", "2020-05-12 15:02:54.714473"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (1.3ms)[0m  [1m[32mINSERT INTO "patients" ("name", "DOB", "insurance", "allergies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Loganne"], ["DOB", "5/27/96"], ["insurance", "Providence"], ["allergies", "gluten"], ["created_at", "2020-05-12 15:03:39.261052"], ["updated_at", "2020-05-12 15:03:39.261052"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (0.7ms)[0m  [1m[32mINSERT INTO "patients" ("name", "DOB", "insurance", "allergies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Morgan"], ["DOB", "08/19/93"], ["insurance", "Blue Cross"], ["allergies", "none"], ["created_at", "2020-05-12 15:03:39.286151"], ["updated_at", "2020-05-12 15:03:39.286151"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1960132899144327495)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeAppointmentType (20200512174349)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.4ms)[0m  [1m[35mALTER TABLE "appointments" RENAME COLUMN "type" TO "specialty"[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200512174349"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1960132899144327495)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/patients" for ::1 at 2020-05-12 11:47:27 -0600
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (5.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 74ms (Views: 23.3ms | ActiveRecord: 42.9ms | Allocations: 7890)
+
+
+Started GET "/appointments" for ::1 at 2020-05-12 11:48:15 -0600
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (2.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 5.7ms | ActiveRecord: 6.8ms | Allocations: 1618)
+
+
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 12:19:37 -0600
+Started GET "/doctors" for 127.0.0.1 at 2020-05-12 12:19:37 -0600
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 12:19:37 -0600
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (20.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AppointmentsController#index as */*
+  [1m[35m (13.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/doctors"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[36mAppointment Load (48.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 71ms (Views: 5.5ms | ActiveRecord: 55.0ms | Allocations: 8736)
+
+
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (4.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 90ms (Views: 61.3ms | ActiveRecord: 21.8ms | Allocations: 7663)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 14:11:26 -0600
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 14:11:26 -0600
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PatientsController#index as */*
+Processing by AppointmentsController#index as */*
+  [1m[36mPatient Load (1.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  [1m[36mAppointment Load (0.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 38ms (Views: 9.1ms | ActiveRecord: 24.4ms | Allocations: 3573)
+
+
+Completed 200 OK in 108ms (Views: 52.8ms | ActiveRecord: 49.4ms | Allocations: 10361)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 14:11:34 -0600
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 14:11:34 -0600
+Processing by PatientsController#index as */*
+Processing by AppointmentsController#index as */*
+  [1m[36mPatient Load (4.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 4.9ms | Allocations: 2335)
+
+
+  [1m[36mAppointment Load (3.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 13.3ms | ActiveRecord: 3.1ms | Allocations: 2835)
+
+
+Started DELETE "/appointments/4" for ::1 at 2020-05-12 14:13:36 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"4", "appointment"=>{}}
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 27ms (ActiveRecord: 5.7ms | Allocations: 3905)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=4):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/4" for ::1 at 2020-05-12 14:13:38 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"4", "appointment"=>{}}
+  [1m[36mAppointment Load (1.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 4ms (ActiveRecord: 1.5ms | Allocations: 701)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=4):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 15:16:10 -0600
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 15:16:10 -0600
+Processing by PatientsController#index as */*
+Processing by AppointmentsController#index as */*
+  [1m[36mPatient Load (4.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 33ms (Views: 24.3ms | ActiveRecord: 4.4ms | Allocations: 2269)
+
+
+  [1m[36mAppointment Load (21.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 30ms (Views: 7.5ms | ActiveRecord: 21.4ms | Allocations: 2965)
+
+
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 15:16:14 -0600
+Processing by PatientsController#index as */*
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 15:16:14 -0600
+  [1m[36mPatient Load (4.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 19ms (Views: 13.6ms | ActiveRecord: 4.6ms | Allocations: 2004)
+
+
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (4.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 5.1ms | ActiveRecord: 4.7ms | Allocations: 873)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 15:22:33 -0600
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 15:22:33 -0600
+Processing by AppointmentsController#index as */*
+Processing by PatientsController#index as */*
+  [1m[36mAppointment Load (3.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 3.0ms | Allocations: 1288)
+
+
+  [1m[36mPatient Load (5.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 6.2ms | ActiveRecord: 5.0ms | Allocations: 2959)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 15:29:42 -0600
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 15:29:42 -0600
+Processing by AppointmentsController#index as */*
+Processing by PatientsController#index as */*
+  [1m[36mAppointment Load (6.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 7.5ms | ActiveRecord: 6.1ms | Allocations: 1084)
+
+
+  [1m[36mPatient Load (13.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 21ms (Views: 6.9ms | ActiveRecord: 13.6ms | Allocations: 2960)
+
+
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 15:30:27 -0600
+Processing by PatientsController#index as */*
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 15:30:27 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mPatient Load (18.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 28ms (Views: 8.2ms | ActiveRecord: 18.9ms | Allocations: 2665)
+
+
+  [1m[36mAppointment Load (21.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 25ms (Views: 3.3ms | ActiveRecord: 21.6ms | Allocations: 2813)
+
+
+Started DELETE "/appointments/2" for ::1 at 2020-05-12 15:30:42 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"2", "appointment"=>{}}
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.8ms | Allocations: 703)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=2):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 15:35:41 -0600
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (7.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 4.4ms | ActiveRecord: 7.3ms | Allocations: 1836)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 15:35:41 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (6.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 2.8ms | ActiveRecord: 6.5ms | Allocations: 873)
+
+
+Started PUT "/appointments/1" for ::1 at 2020-05-12 16:52:01 -0600
+Processing by AppointmentsController#update as HTML
+  Parameters: {"name"=>"Loganne", "dob"=>"", "insurance"=>"Providence", "allergies"=>"bread", "id"=>"1", "appointment"=>{"id"=>"1"}}
+  [1m[36mAppointment Load (4.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 30ms (ActiveRecord: 8.5ms | Allocations: 780)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=1):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 16:52:02 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 1.9ms | Allocations: 874)
+
+
+Started PUT "/appointments/1" for ::1 at 2020-05-12 16:52:08 -0600
+Processing by AppointmentsController#update as HTML
+  Parameters: {"name"=>"Loganne", "dob"=>"", "insurance"=>"Providence", "allergies"=>"bread", "id"=>"1", "appointment"=>{"id"=>"1"}}
+  [1m[36mAppointment Load (3.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 7ms (ActiveRecord: 3.3ms | Allocations: 677)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=1):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 16:52:09 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (2.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 1.9ms | ActiveRecord: 2.4ms | Allocations: 872)
+
+
+Started PUT "/appointments/1" for ::1 at 2020-05-12 16:52:17 -0600
+Processing by AppointmentsController#update as HTML
+  Parameters: {"name"=>"Loganne", "dob"=>"", "insurance"=>"Providence", "allergies"=>"bread", "id"=>"1", "appointment"=>{"id"=>"1"}}
+  [1m[36mAppointment Load (4.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 14ms (ActiveRecord: 4.2ms | Allocations: 677)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=1):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 16:52:18 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 1.7ms | Allocations: 872)
+
+
+Started DELETE "/appointments/2" for ::1 at 2020-05-12 16:52:19 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"2", "appointment"=>{}}
+  [1m[36mAppointment Load (0.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.9ms | Allocations: 672)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=2):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/3" for ::1 at 2020-05-12 16:52:21 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"3", "appointment"=>{}}
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.6ms | Allocations: 672)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=3):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/4" for ::1 at 2020-05-12 16:52:21 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"4", "appointment"=>{}}
+  [1m[36mAppointment Load (1.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 9ms (ActiveRecord: 1.1ms | Allocations: 670)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=4):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/5" for ::1 at 2020-05-12 16:52:22 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"5", "appointment"=>{}}
+  [1m[36mAppointment Load (2.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 11ms (ActiveRecord: 2.0ms | Allocations: 672)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=5):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/6" for ::1 at 2020-05-12 16:52:23 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"6", "appointment"=>{}}
+  [1m[36mAppointment Load (1.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 4ms (ActiveRecord: 1.5ms | Allocations: 671)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=6):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 16:55:11 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"date"=>"9/9/20", "time"=>"9am", "patient"=>"Loganne", "doctor"=>"Dr. Reed", "specialty"=>"Optometry", "appointment"=>{"patient"=>"Loganne", "doctor"=>"Dr. Reed", "specialty"=>"Optometry", "date"=>"9/9/20", "time"=>"9am"}}
+[31mUnpermitted parameter: :specialty[0m
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[36mAppointment Create (36.7ms)[0m  [1m[32mINSERT INTO "appointments" ("patient", "doctor", "date", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["patient", "Loganne"], ["doctor", "Dr. Reed"], ["date", "9/9/20"], ["time", "9am"], ["created_at", "2020-05-12 22:55:11.177588"], ["updated_at", "2020-05-12 22:55:11.177588"]]
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+Completed 201 Created in 123ms (Views: 17.5ms | ActiveRecord: 41.8ms | Allocations: 8514)
+
+
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 16:55:13 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"date"=>"9/9/20", "time"=>"9am", "patient"=>"Loganne", "doctor"=>"Dr. Reed", "specialty"=>"Optometry", "appointment"=>{"patient"=>"Loganne", "doctor"=>"Dr. Reed", "specialty"=>"Optometry", "date"=>"9/9/20", "time"=>"9am"}}
+[31mUnpermitted parameter: :specialty[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[36mAppointment Create (1.0ms)[0m  [1m[32mINSERT INTO "appointments" ("patient", "doctor", "date", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["patient", "Loganne"], ["doctor", "Dr. Reed"], ["date", "9/9/20"], ["time", "9am"], ["created_at", "2020-05-12 22:55:13.986241"], ["updated_at", "2020-05-12 22:55:13.986241"]]
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+Completed 201 Created in 14ms (Views: 1.1ms | ActiveRecord: 4.1ms | Allocations: 2774)
+
+
+Started DELETE "/appointments/1" for ::1 at 2020-05-12 16:55:17 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"1", "appointment"=>{}}
+  [1m[36mAppointment Load (2.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[36mAppointment Destroy (1.2ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+Completed 204 No Content in 25ms (ActiveRecord: 6.8ms | Allocations: 2553)
+
+
+Started DELETE "/appointments/2" for ::1 at 2020-05-12 16:55:21 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"2", "appointment"=>{}}
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[36mAppointment Destroy (1.5ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+Completed 204 No Content in 18ms (ActiveRecord: 9.1ms | Allocations: 2514)
+
+
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 16:56:14 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"4/17/29", "insurance"=>"Keiser", "allergies"=>"none", "appointment"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 144)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 16:56:21 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"4/17/29", "insurance"=>"Keiser", "allergies"=>"none", "appointment"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 141)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 16:56:21 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"4/17/29", "insurance"=>"Keiser", "allergies"=>"none", "appointment"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 141)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:09:44 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"4/17/29", "insurance"=>"Keiser", "allergies"=>"none", "appointment"=>{}}
+Completed 500 Internal Server Error in 444ms (ActiveRecord: 0.0ms | Allocations: 70973)
+
+
+  
+NameError (undefined local variable or method `appointment_params' for #<AppointmentsController:0x00007f870ea56670>
+Did you mean?  appointment_path
+               appointment_url
+               appointments_path):
+  
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:09:51 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"4/17/29", "insurance"=>"Keiser", "allergies"=>"none", "appointment"=>{}}
+Completed 500 Internal Server Error in 474ms (ActiveRecord: 0.0ms | Allocations: 70918)
+
+
+  
+NameError (undefined local variable or method `appointment_params' for #<AppointmentsController:0x00007f870dc43f60>
+Did you mean?  appointment_path
+               appointment_url
+               appointments_path):
+  
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:09:52 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"4/17/29", "insurance"=>"Keiser", "allergies"=>"none", "appointment"=>{}}
+Completed 500 Internal Server Error in 486ms (ActiveRecord: 0.0ms | Allocations: 70915)
+
+
+  
+NameError (undefined local variable or method `appointment_params' for #<AppointmentsController:0x00007f870d34e838>
+Did you mean?  appointment_path
+               appointment_url
+               appointments_path):
+  
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:11:42 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"4/17/29", "insurance"=>"Keiser", "allergies"=>"none", "appointment"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 30.1ms | Allocations: 179)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:20:28 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"4/17/29", "insurance"=>"Keiser", "allergies"=>"none", "appointment"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 141)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:20:33 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"4/17/29", "insurance"=>"Keiser", "allergies"=>"none", "appointment"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 141)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:21:02 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Fred", "dob"=>"4/17/29", "insurance"=>"Keiser", "allergies"=>"none", "appointment"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 141)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:26:06 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"date"=>"9/9/20", "time"=>"9am", "patient"=>"Meg", "doctor"=>"Dr. Baird", "specialty"=>"Optometry", "appointment"=>{"patient"=>"Meg", "doctor"=>"Dr. Baird", "specialty"=>"Optometry", "date"=>"9/9/20", "time"=>"9am"}}
+[31mUnpermitted parameter: :specialty[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[36mAppointment Create (6.7ms)[0m  [1m[32mINSERT INTO "appointments" ("patient", "doctor", "date", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["patient", "Meg"], ["doctor", "Dr. Baird"], ["date", "9/9/20"], ["time", "9am"], ["created_at", "2020-05-12 23:26:06.352421"], ["updated_at", "2020-05-12 23:26:06.352421"]]
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+Completed 201 Created in 75ms (Views: 7.5ms | ActiveRecord: 37.2ms | Allocations: 8204)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 17:27:19 -0600
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 17:27:19 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (8.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 4.9ms | ActiveRecord: 8.5ms | Allocations: 1116)
+
+
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (25.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 183ms (Views: 99.7ms | ActiveRecord: 62.5ms | Allocations: 7267)
+
+
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:27:47 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"date"=>"9/23/20", "time"=>"10am", "patient"=>"Greg", "doctor"=>"Dr. Sel", "specialty"=>"Dentist", "appointment"=>{"patient"=>"Greg", "doctor"=>"Dr. Sel", "specialty"=>"Dentist", "date"=>"9/23/20", "time"=>"10am"}}
+[31mUnpermitted parameter: :specialty[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[36mAppointment Create (4.5ms)[0m  [1m[32mINSERT INTO "appointments" ("patient", "doctor", "date", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["patient", "Greg"], ["doctor", "Dr. Sel"], ["date", "9/23/20"], ["time", "10am"], ["created_at", "2020-05-12 23:27:47.626702"], ["updated_at", "2020-05-12 23:27:47.626702"]]
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+Completed 201 Created in 24ms (Views: 1.9ms | ActiveRecord: 11.2ms | Allocations: 2775)
+
+
+Started PUT "/appointments/4" for ::1 at 2020-05-12 17:27:58 -0600
+Processing by AppointmentsController#update as HTML
+  Parameters: {"date"=>"9/23/20", "time"=>"10am", "patient"=>"Greg", "doctor"=>"Dr. Sel", "specialty"=>"Dentist", "id"=>"4", "appointment"=>{"id"=>"4", "patient"=>"Greg", "doctor"=>"Dr. Sel", "specialty"=>"Dentist", "date"=>"9/23/20", "time"=>"10am"}}
+  [1m[36mAppointment Load (2.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+[31mUnpermitted parameters: :id, :specialty[0m
+Completed 200 OK in 24ms (Views: 1.4ms | ActiveRecord: 8.2ms | Allocations: 1296)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 17:27:58 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 1.3ms | Allocations: 1215)
+
+
+Started GET "/appointments" for ::1 at 2020-05-12 17:51:48 -0600
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (3.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 7.4ms | ActiveRecord: 3.5ms | Allocations: 1286)
+
+
+Started GET "/patients" for ::1 at 2020-05-12 17:52:36 -0600
+Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (2.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 2.8ms | Allocations: 1835)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (0.9ms)[0m  [1m[32mINSERT INTO "patients" ("name", "DOB", "insurance", "allergies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Loganne"], ["DOB", "5/27/96"], ["insurance", "Providence"], ["allergies", "gluten"], ["created_at", "2020-05-12 23:54:45.030114"], ["updated_at", "2020-05-12 23:54:45.030114"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (2.1ms)[0m  [1m[32mINSERT INTO "patients" ("name", "DOB", "insurance", "allergies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Morgan"], ["DOB", "08/19/93"], ["insurance", "Blue Cross"], ["allergies", "none"], ["created_at", "2020-05-12 23:54:45.042182"], ["updated_at", "2020-05-12 23:54:45.042182"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (2.4ms)[0m  [1m[32mINSERT INTO "patients" ("name", "DOB", "insurance", "allergies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Loganne"], ["DOB", "5/27/96"], ["insurance", "Providence"], ["allergies", "gluten"], ["created_at", "2020-05-12 23:55:18.932637"], ["updated_at", "2020-05-12 23:55:18.932637"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (0.7ms)[0m  [1m[32mINSERT INTO "patients" ("name", "DOB", "insurance", "allergies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Morgan"], ["DOB", "08/19/93"], ["insurance", "Blue Cross"], ["allergies", "none"], ["created_at", "2020-05-12 23:55:18.946410"], ["updated_at", "2020-05-12 23:55:18.946410"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAppointment Create (0.8ms)[0m  [1m[32mINSERT INTO "appointments" ("patient", "doctor", "specialty", "date", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient", "Loganne"], ["doctor", "Dr.Reed"], ["specialty", "Optometrist"], ["date", "5/15/20"], ["time", "9am"], ["created_at", "2020-05-12 23:55:18.970392"], ["updated_at", "2020-05-12 23:55:18.970392"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAppointment Create (0.4ms)[0m  [1m[32mINSERT INTO "appointments" ("patient", "doctor", "specialty", "date", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient", "Morgan"], ["doctor", "Dr.Pratt"], ["specialty", "Dermatologist"], ["date", "5/13/20"], ["time", "11am"], ["created_at", "2020-05-12 23:55:18.976943"], ["updated_at", "2020-05-12 23:55:18.976943"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/appointments" for ::1 at 2020-05-12 17:55:23 -0600
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (1.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 1.8ms | Allocations: 1568)
+
+
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 17:55:27 -0600
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 17:55:27 -0600
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.6ms | Allocations: 2481)
+
+
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 1.5ms | Allocations: 1645)
+
+
+Started DELETE "/appointments/10" for ::1 at 2020-05-12 17:55:37 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"10", "appointment"=>{}}
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 5ms (ActiveRecord: 1.1ms | Allocations: 702)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=10):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/9" for ::1 at 2020-05-12 17:55:37 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"9", "appointment"=>{}}
+  [1m[36mAppointment Load (1.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 4ms (ActiveRecord: 1.3ms | Allocations: 671)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=9):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/8" for ::1 at 2020-05-12 17:55:38 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"8", "appointment"=>{}}
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.6ms | Allocations: 671)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=8):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/7" for ::1 at 2020-05-12 17:55:39 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"7", "appointment"=>{}}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 671)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=7):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/6" for ::1 at 2020-05-12 17:55:39 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"6", "appointment"=>{}}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[36mAppointment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+Completed 204 No Content in 10ms (ActiveRecord: 2.8ms | Allocations: 2514)
+
+
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:56:46 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Louis", "dob"=>"4/14/98", "insurance"=>"none", "allergies"=>"Bees", "appointment"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 141)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:56:52 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Louis", "dob"=>"4/14/98", "insurance"=>"none", "allergies"=>"Bees", "appointment"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 141)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 17:59:22 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Louis", "dob"=>"4/14/98", "insurance"=>"none", "allergies"=>"Bees", "appointment"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 19.7ms | Allocations: 179)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:04:58 -0600
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:04:58 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 28ms (Views: 17.2ms | ActiveRecord: 9.6ms | Allocations: 8198)
+
+
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 32ms (Views: 15.2ms | ActiveRecord: 13.5ms | Allocations: 7905)
+
+
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:07:06 -0600
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:07:06 -0600
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 1.0ms | Allocations: 2821)
+
+
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 1.2ms | Allocations: 1391)
+
+
+Started DELETE "/appointments/5" for ::1 at 2020-05-12 18:07:27 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"5", "appointment"=>{}}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[36mAppointment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+Completed 204 No Content in 11ms (ActiveRecord: 3.6ms | Allocations: 2660)
+
+
+Started DELETE "/appointments/4" for ::1 at 2020-05-12 18:07:29 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"4", "appointment"=>{}}
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[36mAppointment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+Completed 204 No Content in 9ms (ActiveRecord: 2.8ms | Allocations: 2514)
+
+
+Started DELETE "/appointments/3" for ::1 at 2020-05-12 18:07:30 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"3", "appointment"=>{}}
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[36mAppointment Destroy (1.6ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+Completed 204 No Content in 10ms (ActiveRecord: 3.7ms | Allocations: 2514)
+
+
+Started DELETE "/appointments/9" for ::1 at 2020-05-12 18:07:31 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"9", "appointment"=>{}}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 672)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=9):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/8" for ::1 at 2020-05-12 18:07:32 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"8", "appointment"=>{}}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms | Allocations: 671)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=8):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:07:40 -0600
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (8.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:07:40 -0600
+Completed 200 OK in 31ms (Views: 22.4ms | ActiveRecord: 8.2ms | Allocations: 2857)
+
+
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (6.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 3.8ms | ActiveRecord: 6.8ms | Allocations: 873)
+
+
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:07:44 -0600
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 1.3ms | Allocations: 2481)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:07:44 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.6ms | Allocations: 873)
+
+
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 18:08:44 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"date"=>"5/20/20", "time"=>"10am", "patient"=>"Loganne", "doctor"=>"Dr.Reed", "specialty"=>"Optometry", "appointment"=>{"patient"=>"Loganne", "doctor"=>"Dr.Reed", "specialty"=>"Optometry", "date"=>"5/20/20", "time"=>"10am"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[36mAppointment Create (1.0ms)[0m  [1m[32mINSERT INTO "appointments" ("patient", "doctor", "specialty", "date", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient", "Loganne"], ["doctor", "Dr.Reed"], ["specialty", "Optometry"], ["date", "5/20/20"], ["time", "10am"], ["created_at", "2020-05-13 00:08:44.417476"], ["updated_at", "2020-05-13 00:08:44.417476"]]
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:20:in `create'
+Completed 201 Created in 12ms (Views: 1.1ms | ActiveRecord: 2.9ms | Allocations: 2831)
+
+
+Started PUT "/appointments/7" for ::1 at 2020-05-12 18:08:52 -0600
+Processing by AppointmentsController#update as HTML
+  Parameters: {"date"=>"5/20/20", "time"=>"10am", "patient"=>"Logs", "doctor"=>"Dr.Reed", "specialty"=>"Optometry", "id"=>"7", "appointment"=>{"id"=>"7", "patient"=>"Logs", "doctor"=>"Dr.Reed", "specialty"=>"Optometry", "date"=>"5/20/20", "time"=>"10am"}}
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+[31mUnpermitted parameter: :id[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:29:in `update'
+  [1m[36mAppointment Update (1.9ms)[0m  [1m[33mUPDATE "appointments" SET "patient" = $1, "updated_at" = $2 WHERE "appointments"."id" = $3[0m  [["patient", "Logs"], ["updated_at", "2020-05-13 00:08:52.058059"], ["id", 7]]
+  ↳ app/controllers/appointments_controller.rb:29:in `update'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:29:in `update'
+Completed 200 OK in 19ms (Views: 0.8ms | ActiveRecord: 5.4ms | Allocations: 3410)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:08:52 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.6ms | Allocations: 1051)
+
+
+Started DELETE "/appointments/7" for ::1 at 2020-05-12 18:08:57 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"7", "appointment"=>{}}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[36mAppointment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+Completed 204 No Content in 9ms (ActiveRecord: 2.8ms | Allocations: 2515)
+
+
+Started DELETE "/appointments/10" for ::1 at 2020-05-12 18:09:03 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"10", "appointment"=>{}}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 672)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=10):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:09:08 -0600
+Processing by AppointmentsController#index as */*
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:09:08 -0600
+  [1m[36mAppointment Load (7.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Processing by PatientsController#index as */*
+Completed 200 OK in 13ms (Views: 5.7ms | ActiveRecord: 7.0ms | Allocations: 1236)
+
+
+  [1m[36mPatient Load (7.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 5.7ms | ActiveRecord: 7.9ms | Allocations: 2707)
+
+
+Started DELETE "/appointments/10" for ::1 at 2020-05-12 18:09:11 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"10", "appointment"=>{}}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 672)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=10):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/9" for ::1 at 2020-05-12 18:09:12 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"9", "appointment"=>{}}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 671)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=9):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/8" for ::1 at 2020-05-12 18:09:13 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"8", "appointment"=>{}}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 671)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=8):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/7" for ::1 at 2020-05-12 18:09:14 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"7", "appointment"=>{}}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 671)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=7):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started DELETE "/appointments/6" for ::1 at 2020-05-12 18:09:14 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"6", "appointment"=>{}}
+  [1m[36mAppointment Load (1.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 5ms (ActiveRecord: 1.8ms | Allocations: 671)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=6):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:11:01 -0600
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:11:01 -0600
+Processing by AppointmentsController#index as */*
+Processing by PatientsController#index as */*
+  [1m[36mAppointment Load (1.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 1.1ms | Allocations: 1208)
+
+
+  [1m[36mPatient Load (1.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 1.7ms | Allocations: 3429)
+
+
+Started PUT "/appointments/9" for ::1 at 2020-05-12 18:11:16 -0600
+Processing by AppointmentsController#update as HTML
+  Parameters: {"name"=>"Loganne", "dob"=>"", "insurance"=>"Providence", "allergies"=>"bread", "id"=>"9", "appointment"=>{"id"=>"9"}}
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 5ms (ActiveRecord: 0.8ms | Allocations: 677)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=9):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:11:16 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 872)
+
+
+Started PUT "/appointments/9" for ::1 at 2020-05-12 18:11:21 -0600
+Processing by AppointmentsController#update as HTML
+  Parameters: {"name"=>"Loganne", "dob"=>"", "insurance"=>"Providence", "allergies"=>"bread", "id"=>"9", "appointment"=>{"id"=>"9"}}
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.8ms | Allocations: 677)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=9):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:11:21 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 1.0ms | Allocations: 872)
+
+
+Started DELETE "/appointments/9" for ::1 at 2020-05-12 18:11:29 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"9", "appointment"=>{}}
+  [1m[36mAppointment Load (1.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+Completed 404 Not Found in 4ms (ActiveRecord: 1.6ms | Allocations: 672)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Appointment with 'id'=9):
+  
+app/controllers/appointments_controller.rb:44:in `set_appointment'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 18:11:52 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"5/5/20", "insurance"=>"none", "allergies"=>"bees", "appointment"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 141)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started POST "/appointments" for 127.0.0.1 at 2020-05-12 18:11:56 -0600
+Processing by AppointmentsController#create as HTML
+  Parameters: {"name"=>"Greg", "dob"=>"5/5/20", "insurance"=>"none", "allergies"=>"bees", "appointment"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 141)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/appointments_controller.rb:49:in `appointment_params'
+app/controllers/appointments_controller.rb:18:in `create'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:16:45 -0600
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:16:45 -0600
+Processing by AppointmentsController#index as */*
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  [1m[36mAppointment Load (20.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 38ms (Views: 34.7ms | ActiveRecord: 0.6ms | Allocations: 3184)
+
+
+Completed 200 OK in 103ms (Views: 62.6ms | ActiveRecord: 20.6ms | Allocations: 3592)
+
+
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:36:30 -0600
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:36:30 -0600
+Processing by AppointmentsController#index as */*
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (2.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 2.2ms | Allocations: 2557)
+
+
+  [1m[36mAppointment Load (21.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 111ms (Views: 88.7ms | ActiveRecord: 21.6ms | Allocations: 4057)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:36:51 -0600
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:36:51 -0600
+Processing by AppointmentsController#index as */*
+Processing by PatientsController#index as */*
+  [1m[36mPatient Load (2.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 2.3ms | Allocations: 2507)
+
+
+  [1m[36mAppointment Load (4.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 4.1ms | Allocations: 3593)
+
+
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:37:56 -0600
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:37:56 -0600
+Processing by PatientsController#index as */*
+Processing by AppointmentsController#index as */*
+  [1m[36mPatient Load (1.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+  [1m[36mAppointment Load (2.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 2.1ms | Allocations: 3273)
+
+
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 1.2ms | Allocations: 2639)
+
+
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:39:47 -0600
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:39:47 -0600
+Processing by PatientsController#index as */*
+Processing by AppointmentsController#index as */*
+  [1m[36mPatient Load (1.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 1.9ms | Allocations: 2932)
+
+
+  [1m[36mAppointment Load (8.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 4.6ms | ActiveRecord: 8.4ms | Allocations: 3390)
+
+
+Started GET "/patients" for 127.0.0.1 at 2020-05-12 18:40:38 -0600
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:40:38 -0600
+Processing by PatientsController#index as */*
+Processing by AppointmentsController#index as */*
+  [1m[36mPatient Load (1.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 1.7ms | Allocations: 2618)
+
+
+  [1m[36mAppointment Load (9.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 3.2ms | ActiveRecord: 9.4ms | Allocations: 3461)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 18:41:44 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 873)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1960132899144327495)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DropPatientsTable (20200513011408)
+  [1m[35m (3.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (30.1ms)[0m  [1m[35mDROP TABLE "patients"[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200513011408"]]
+  [1m[35m (11.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1960132899144327495)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/patients" for ::1 at 2020-05-12 19:15:21 -0600
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (3.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/controllers/patients_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 3.1ms | Allocations: 1408)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "patients" does not exist
+LINE 1: SELECT "patients".* FROM "patients"
+                                 ^
+):
+  
+app/controllers/patients_controller.rb:8:in `index'
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 19:15:35 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 1.3ms | Allocations: 1404)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 19:16:21 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (2.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 2.0ms | Allocations: 873)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 19:18:09 -0600
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 3.4ms | ActiveRecord: 5.4ms | Allocations: 1983)
+
+
+Started GET "/appointments" for ::1 at 2020-05-12 19:18:33 -0600
+Processing by AppointmentsController#index as HTML
+  [1m[36mAppointment Load (3.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 3.3ms | Allocations: 890)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAppointment Create (2.1ms)[0m  [1m[32mINSERT INTO "appointments" ("patient", "doctor", "specialty", "date", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient", "Loganne"], ["doctor", "Dr.Reed"], ["specialty", "Optometrist"], ["date", "5/15/20"], ["time", "9am"], ["created_at", "2020-05-13 01:19:18.094674"], ["updated_at", "2020-05-13 01:19:18.094674"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAppointment Create (0.4ms)[0m  [1m[32mINSERT INTO "appointments" ("patient", "doctor", "specialty", "date", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient", "Morgan"], ["doctor", "Dr.Pratt"], ["specialty", "Dermatologist"], ["date", "5/13/20"], ["time", "11am"], ["created_at", "2020-05-13 01:19:18.109832"], ["updated_at", "2020-05-13 01:19:18.109832"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 19:19:21 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 39ms (Views: 27.4ms | ActiveRecord: 11.6ms | Allocations: 6949)
+
+
+Started DELETE "/appointments/9" for ::1 at 2020-05-12 19:19:46 -0600
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"9", "appointment"=>{}}
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[36mAppointment Destroy (0.7ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:38:in `destroy'
+Completed 204 No Content in 32ms (ActiveRecord: 3.0ms | Allocations: 5743)
+
+
+Started PUT "/appointments/8" for ::1 at 2020-05-12 19:19:52 -0600
+Processing by AppointmentsController#update as HTML
+  Parameters: {"date"=>"5/15/20", "time"=>"9am", "patient"=>"Logs", "doctor"=>"Dr.Reed", "specialty"=>"Optometrist", "id"=>"8", "appointment"=>{"id"=>"8", "patient"=>"Logs", "doctor"=>"Dr.Reed", "specialty"=>"Optometrist", "date"=>"5/15/20", "time"=>"9am"}}
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/appointments_controller.rb:44:in `set_appointment'
+[31mUnpermitted parameter: :id[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/appointments_controller.rb:29:in `update'
+  [1m[36mAppointment Update (0.7ms)[0m  [1m[33mUPDATE "appointments" SET "patient" = $1, "updated_at" = $2 WHERE "appointments"."id" = $3[0m  [["patient", "Logs"], ["updated_at", "2020-05-13 01:19:52.512449"], ["id", 8]]
+  ↳ app/controllers/appointments_controller.rb:29:in `update'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/appointments_controller.rb:29:in `update'
+Completed 200 OK in 18ms (Views: 0.8ms | ActiveRecord: 4.0ms | Allocations: 3526)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 19:19:52 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1068)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 19:28:54 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 1.9ms | Allocations: 1126)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 19:45:18 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (3.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 3.2ms | ActiveRecord: 3.4ms | Allocations: 1126)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 19:54:46 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (1.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 1.7ms | Allocations: 1126)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2020-05-12 20:15:21 -0600
+Processing by AppointmentsController#index as */*
+  [1m[36mAppointment Load (3.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/appointments_controller.rb:8:in `index'
+Completed 200 OK in 47ms (Views: 35.4ms | ActiveRecord: 3.7ms | Allocations: 1127)
+
+
