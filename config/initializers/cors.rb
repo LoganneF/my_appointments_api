@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://logannef.com/my_appointments_client.github.io/'
+    origins 'https://git.heroku.com/house-appointments-client.git'
 
     resource '*',
       headers: :any,
