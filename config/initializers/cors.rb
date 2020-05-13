@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:3001'
+    origins 'http://logannef.com/my_appointments_client.github.io/'
 
     resource '*',
       headers: :any,
