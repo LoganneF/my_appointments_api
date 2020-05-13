@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## HOUSE APPOINTMENTS
+Users will be allowed to create, read, update, and delete doctor appointments for their clients.
 
-Things you may want to cover:
+##Link to front-end and back-end
+https://house-appointments-client.herokuapp.com/
+https://house-appointments-api.herokuapp.com/
 
-* Ruby version
+###Technology Used
+React.js, Ruby on rails, Implemented CORS, Hosted on Heroku.
+###Approach taken
+Created API with Ruby on Rails.
+Setup seeds
+create-react-app with full CRUD capabilities.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+###User Stories
+This app is intended for 
+User can see a directory of their doctors and clients.
+User can add, edit and delete an appointment
